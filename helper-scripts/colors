@@ -1,0 +1,4 @@
+bold=`tput bold`
+white=`tput setaf 7`
+red=`tput setaf 1`
+reset=`tput sgr0`

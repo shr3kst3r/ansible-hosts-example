@@ -1,0 +1,40 @@
+#!/bin/bash
+
+source helper-scripts/colors
+
+echo $bold$white"=> Linting Ansible Code"$reset
+fail_ansible=0
+for f in `find . -name "*.yml"`; do
+    echo $bold$white"==> LINTING $f"$reset
+    ansible-lint $f
+    rc=$?
+    if [[ $rc != 0 ]]; then
+        echo $bold$red"==> LINTING FAIL: $f"$reset
+        fail_ansible=1
+    fi
+done
+
+echo $bold$white"=> Run Ansible"$reset
+fail_provision=0
+vagrant provision
+rc=$?
+if [[ $rc != 0 ]]; then
+    echo $bold$red"=> PROVISIONING FAIL"$reset
+    fail_provision=1
+fi
+
+echo $bold$white"=> Verify Environment"$reset
+fail_spec=0
+rake spec
+rc=$?
+if [[ $rc != 0 ]]; then
+    echo $bold$red"=> TESTING FAIL"$reset
+    fail_spec=1
+fi
+
+if [[ $fail_ansible == 1 || $fail_provision == 1 || $fail_spec == 1 ]]; then
+    echo $bold$red"=> FAIL FAIL FAIL"$reset
+    exit 1
+else
+    echo $bold$white"=> SUCCESS"$reset
+fi

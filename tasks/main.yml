@@ -1,0 +1,4 @@
+---
+
+- name: ensure /etc/hosts
+  template: src=etc/hosts dest=/etc/hosts owner=root group=root mode=0644

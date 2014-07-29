@@ -1,0 +1,19 @@
+#!/bin/bash
+
+source helper-scripts/colors
+
+file=$1
+d=`date`
+
+echo $1 | grep '.yml$' &>/dev/null
+rc=$?
+
+if [[ $rc -eq 0 ]]; then
+    echo $bold$white"[$d] $file has been modified"$reset
+    ansible-lint $file
+    
+    arc=$?
+    if [[ $arc != 0 ]]; then
+        echo $bold$red"Lint Failed!"$reset
+    fi
+fi

@@ -1,0 +1,6 @@
+---
+
+hosts:
+    localhost: 127.0.0.1
+    precise32: 127.0.0.1
+    testdomain: 127.0.0.1

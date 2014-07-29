@@ -1,0 +1,3 @@
+#!/bin/bash
+
+fswatch -r /Users/dennis/ansible-hosts-example | xargs -n1 helper-scripts/watch
