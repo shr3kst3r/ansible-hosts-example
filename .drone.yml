@@ -2,6 +2,7 @@ image: python2.7
 env:
 script:
   - echo `hostname`
+  - ls
 notify:
   email:
     recipients:
