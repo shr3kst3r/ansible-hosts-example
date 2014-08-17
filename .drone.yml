@@ -10,6 +10,7 @@ script:
   - sudo apt-get install rubygems
   - sudo gem install serverspec
   - sudo apt-get install rake
+  - sudo echo "127.0.0.1 test" >>/etc/hosts
   - sudo ls -altr /etc/hosts
   - sudo cat /etc/hosts
   - sudo ./drone_it
