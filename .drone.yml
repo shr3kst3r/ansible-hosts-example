@@ -9,6 +9,7 @@ script:
   - sudo pip install https://github.com/willthames/ansible-lint/archive/master.zip
   - sudo apt-get install rubygems
   - sudo gem install serverspec
+  - sudo ./test_it
 notify:
   email:
     recipients:
