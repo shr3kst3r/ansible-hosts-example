@@ -1,0 +1,8 @@
+image: python2.7
+env:
+script:
+  - echo `hostname`
+notify:
+  email:
+    recipients:
+      - dennis@wpengine.com
