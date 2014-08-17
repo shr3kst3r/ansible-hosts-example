@@ -14,7 +14,7 @@ done
 
 echo "=> Run Ansible"
 fail_provision=0
-ansible-playbook test.yml
+ansible-playbook test.yml --connection=local
 rc=$?
 if [[ $rc != 0 ]]; then
     echo "=> PROVISIONING FAIL"
