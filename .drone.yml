@@ -10,6 +10,8 @@ script:
   - sudo apt-get install rubygems
   - sudo gem install serverspec
   - sudo apt-get install rake
+  - sudo ls -altr /etc/hosts
+  - sudo cat /etc/hosts
   - sudo ./drone_it
 notify:
   email:
