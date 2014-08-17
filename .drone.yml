@@ -1,11 +1,15 @@
-image: ubuntu:12.04
+image: python2.7
 env:
 script:
-  - sudo apt-get upgrade -y
+  - sudo apt-get update
   - sudo apt-get install -y software-properties-common
   - sudo apt-add-repository ppa:ansible/ansible
-  - sudo apt-get update sudo
+  - sudo apt-get update
   - sudo apt-get install -y ansible
+  - sudo pip install https://github.com/willthames/ansible-lint/archive/master.zip
+  - sudo apt-get install rubygems
+  - sudo gem install serverspec
+  - sudo ./test_it
 notify:
   email:
     recipients:
