@@ -6,6 +6,8 @@ script:
   - sudo apt-add-repository ppa:ansible/ansible
   - sudo apt-get update
   - sudo apt-get install -y ansible
+  - sudo pip install https://github.com/willthames/ansible-lint/archive/master.zip
+  - sudo gem install serverspec
 notify:
   email:
     recipients:
