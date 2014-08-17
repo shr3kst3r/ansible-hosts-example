@@ -1,7 +1,7 @@
 image: python2.7
 env:
 script:
-  - curl http://archive.ubuntu.com/ubuntu/
+  - sudo apt-get update
   - sudo apt-get upgrade -y
   - sudo apt-get install -y software-properties-common
   - sudo apt-add-repository ppa:ansible/ansible
