@@ -1,4 +1,4 @@
-image: python2.7
+image: ubuntu:12.04
 env:
 script:
   - sudo apt-get upgrade -y
